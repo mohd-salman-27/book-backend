@@ -20,16 +20,16 @@ const bookResolvers = {
 
           updateBook: async (_, { id, title, author, description, price, borrower, owner }, context) => {
                await authMiddleware("ADMIN")(context.user)
-               return updateBookController(id, title, author, description, price, borrower, owner)
+               return await updateBookController(id, title, author, description, price, borrower, owner)
           },
 
           deleteBook: async (_, { id }, context) => {
                await authMiddleware("ADMIN")(context.user)
-               return deleteBookController(id);
+               return await deleteBookController(id);
           },
 
           borrowBook: async (_, { bookId }, context) => {
-               return borrowBookController(bookId, context.user)
+               return await borrowBookController(bookId, context.user)
           },
           buyBook: async (_, { bookId }, context) => {
                return await buyBook(bookId, context.user)
