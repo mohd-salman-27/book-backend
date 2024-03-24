@@ -37,7 +37,6 @@ const bookType = gql`
           addBook(title: String!, author: String!, description: String, price: Int!, owner: String): Book!
           updateBook(id: ID!,title: String, author: String, description: String, price: Int, borrower: String, owner: String): Book!
           deleteBook(id: ID!): ID!
-
           borrowBook(bookId: ID!): Book!
           buyBook(bookId: ID!): Book!
           requestToBorrowBook(id: ID!): Book!
